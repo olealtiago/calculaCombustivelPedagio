@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dois Cursores no Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dois Cursores no Mapa</h1>
+    <div>
+        <p>Cursor 1:</p>
+        <p>Latitude: <span id="latitude1"></span></p>
+        <p>Longitude: <span id="longitude1"></span></p>
+    </div>
+    <div>
+        <p>Cursor 2:</p>
+        <p>Latitude: <span id="latitude2"></span></p>
+        <p>Longitude: <span id="longitude2"></span></p>
+    </div>
+    <p>Distância entre os cursores: <span id="distance"></span></p>
+    <div id="map"></div>
+    <script src="script.js"></script>
+</body>
+</html>
