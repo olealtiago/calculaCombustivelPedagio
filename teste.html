@@ -1,0 +1,34 @@
+Passo 1: Conjuntos de Atributos Usados por Cada Operação:
+
+    RepairedDataTracker(): {verifier}
+    recordDigest(): {source, digest, isConclusive, digests, inconclusiveDigests}
+    verify(): {verifier}
+    toString(): {hexDigests(), inconclusiveDigests}
+    hexDigests(): {digests}
+    equals(): {digests, inconclusiveDigests}
+    hashCode(): {digests, inconclusiveDigests}
+
+
+Passo 2: Calcular o nro de interseções vazias |V| e não vazias |nV|. Para isso devemos comparar cada método com todos os outros.
+
+    RepairedDataTracker() x recordDigest(): {}
+    RepairedDataTracker() x verify(): {verifier}
+    RepairedDataTracker() x toString(): {}
+    RepairedDataTracker() x hexDigests(): {}
+    RepairedDataTracker() x equals(): {}
+    RepairedDataTracker() x hashCode(): {}
+    recordDigest() x verify(): {}
+    recordDigest() x toString(): {inconclusiveDigests}
+    recordDigest() x hexDigests(): {digests}
+    recordDigest() x equals(): {digests, inconclusiveDigests}
+    recordDigest() x hashCode(): {digests, inconclusiveDigests}
+    verify() x toString(): {}
+    verify() x hexDigests(): {}
+    verify() x equals(): {}
+    verify() x hashCode(): {}
+    toString() x hexDigests(): {}
+    toString() x equals(): {inconclusiveDigests}
+    toString() x hashCode(): {inconclusiveDigests}
+    hexDigests() x equals(): {digests}
+    hexDigests() x hashCode(): {digests}
+    equals() x hashCode(): {digests,inconclusiveDigests}
