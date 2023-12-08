@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dois Cursores no Mapa</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
         #map {
             height: 400px;
         }
     </style>
 </head>
-<body onload="initMap()"> <!-- Adicionado onload="initMap()" -->
+<body>
     <h1>Dois Cursores no Mapa</h1>
     <div>
         <p>Cursor 1:</p>
@@ -25,9 +24,6 @@
     </div>
     <p>Distância entre os cursores: <span id="distance"></span></p>
     <div id="map"></div>
-
-    <!-- Inclua as bibliotecas do Google Maps e o script modificado -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4ksri_oK8paC1Fn-FDYy60Ukmwupg3WI&libraries=places"></script>
-    <script src="calculo.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
