@@ -11,7 +11,7 @@ function calculate() {
     var destination = document.getElementById('destination').value;
     
     // Construa a URL com os parâmetros de origem e destino
-    var url = 'calculo.html?origin=' + encodeURIComponent(origin) + '&destination=' + encodeURIComponent(destination);
+    var url = 'calculo-old.html?origin=' + encodeURIComponent(origin) + '&destination=' + encodeURIComponent(destination);
     
     // Redirecione para a página de cálculo
     window.location.href = url;
