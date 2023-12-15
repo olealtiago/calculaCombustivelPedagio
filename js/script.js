@@ -1,8 +1,9 @@
-var map = L.map('map').setView([0, 0], 13);
+var map = L.map('map').setView([-23.550520, -46.633308], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-var cursorMarker1 = L.marker([0, 0], { draggable: true }).addTo(map);
-var cursorMarker2 = L.marker([0, 0], { draggable: true }).addTo(map);
+var cursorMarker1 = L.marker([-23.550520, -46.633308], { draggable: true }).addTo(map);
+var cursorMarker2 = L.marker([-23.550520, -46.633308], { draggable: true }).addTo(map);
+
 
 var line = L.polyline([cursorMarker1.getLatLng(), cursorMarker2.getLatLng()], {
     color: 'red'
