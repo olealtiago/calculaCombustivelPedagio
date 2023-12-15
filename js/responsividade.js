@@ -11,19 +11,19 @@ toggleMenu.addEventListener("change", function () {
 });
 
 window.addEventListener("resize", function () {
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth >= 1000) {
     mapaView.style.zIndex = "";
   }
 });
 
 toggleMenu.addEventListener("change", function () {
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < 1000) {
     mapaForms.style.display = this.checked ? "flex" : "none";
   }
 });
 
 window.addEventListener("resize", function () {
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth >= 1000) {
     mapaForms.style.display = "flex";
   } else if (!toggleMenu.checked) {
     mapaForms.style.display = "none";
