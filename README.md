@@ -1,5 +1,5 @@
-Guilherme Santos de Godoy - 758710
-Sophia Schuster - 760936
+Guilherme Santos de Godoy - 758710,
+Sophia Schuster - 760936,
 Tiago Lucas Leal - 760937
 
 # calculaCombustivelPedagio
