@@ -12,8 +12,10 @@
 
 6 - fazer a tela do mapa não ter aquela barrinha do lado (a tela inicial também? aí precisa ajustar o formulário e talvez não dê pra aproveitar na outra tela)
 
-2 pessoas pro mapa + ajustar essa tela (tarefas: 1, 6)
+7 - criar um componente de informações do cálculo (qtde litros, valor do combustível, qtde pedágios, valor pedágios, valor total, distância)
 
-1 pessoa pras rotas (tarefas: 4)
+- mapa + ajustar essa tela (tarefas: 1, 6) (tiago)
 
-2 pessoa pra organizar os arquivos todos? (tarefas: 2, 3, 5)
+- rotas (tarefas: 4) (sophia)
+
+- organizar os arquivos todos? (tarefas: 2, 3, 5) (guilherme)
