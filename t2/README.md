@@ -12,8 +12,8 @@
 
 6 - fazer a tela do mapa não ter aquela barrinha do lado (a tela inicial também? aí precisa ajustar o formulário e talvez não dê pra aproveitar na outra tela)
 
-2 pessoas pro mapa + ajustar essa tela (tarefas: 1, 5)
+2 pessoas pro mapa + ajustar essa tela (tarefas: 1, 6)
 
 1 pessoa pras rotas (tarefas: 4)
 
-2 pessoa pra organizar os arquivos todos? (tarefas: 2, 3, 6)
+2 pessoa pra organizar os arquivos todos? (tarefas: 2, 3, 5)
