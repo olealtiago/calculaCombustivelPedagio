@@ -5,7 +5,7 @@ const CalculoBtn = () => {
     return (
         <>
             <div className='btn'>
-                <button type="button" onclick="calculate()">Calcular</button>
+                <button type="button" onClick="calculate()">Calcular</button>
             </div>
             <script src="../scripts/calculo.js" />
         </>

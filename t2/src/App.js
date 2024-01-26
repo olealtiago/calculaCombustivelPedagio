@@ -9,7 +9,7 @@ import { HomePage, MapPage } from './pages';
 const App = () => {
   return (
     <div className='App'>
-        <HomePage />
+        {/* <HomePage /> */}
         <MapPage />
     </div>
 

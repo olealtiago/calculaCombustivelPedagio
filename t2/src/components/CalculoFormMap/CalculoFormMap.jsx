@@ -7,25 +7,25 @@ const CalculoFormMap = () => {
   return (
     <div className="calculo calculo__mapa">
       <form className="calculo__mapa-forms">
-          <label for="origin">Cidade de Origem:</label>
+          <label htmlFor="origin">Cidade de Origem:</label>
           <input
             type="text"
             id="origin"
             name="origin"
             required
-            autocomplete="off"
+            autoComplete="off"
           />
 
-          <label for="destination">Cidade de Destino:</label>
+          <label htmlFor="destination">Cidade de Destino:</label>
           <input
             type="text"
             id="destination"
             name="destination"
             required
-            autocomplete="off"
+            autoComplete="off"
           />
 
-          <label for="vehicle">Tipo de Veículo:</label>
+          <label htmlFor="vehicle">Tipo de Veículo:</label>
           <select id="vehicle" name="vehicle" required>
             <option value="car">Carro</option>
             <option value="motorcycle">Moto</option>
@@ -33,7 +33,7 @@ const CalculoFormMap = () => {
             <option value="bus">Ônibus</option>
           </select>
 
-          <label for="consumption">Consumo do Veículo (km/l):</label>
+          <label htmlFor="consumption">Consumo do Veículo (km/l):</label>
           <input
             type="number"
             id="consumption"
@@ -42,7 +42,7 @@ const CalculoFormMap = () => {
             required
           />
 
-          <label for="fuelPrice">Preço do Combustível (R$/litro):</label>
+          <label htmlFor="fuelPrice">Preço do Combustível (R$/litro):</label>
           <input
             type="number"
             id="fuelPrice"
@@ -51,7 +51,7 @@ const CalculoFormMap = () => {
             required
           />
 
-          <label for="tripType">Tipo de Viagem:</label>
+          <label htmlFor="tripType">Tipo de Viagem:</label>
           <select id="tripType" name="tripType" required>
             <option value="oneWay">Apenas Ida</option>
             <option value="roundTrip">Ida e Volta</option>

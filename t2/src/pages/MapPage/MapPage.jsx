@@ -5,7 +5,7 @@ import "./mapPage.css";
 const MapPage = () => {
   return (
     <div>
-      <Header />
+      <Header showResponsiveMenu={true} />
       <div className="map-display">
         <CalculoFormMap />
         <MapDisplay />

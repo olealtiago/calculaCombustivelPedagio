@@ -4,7 +4,7 @@ import './mapDisplay.css';
 const MapDisplay = () => {
     return (
         <div className="calculo calculo__mapa">
-            <div class="calculo__mapa-view">
+            <div className="calculo__mapa-view">
                 <div id="map"></div>
             </div>
 
