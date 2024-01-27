@@ -4,15 +4,23 @@
 
 .map-page-content {
     display: flex;
+    border: 2px solid red;
+    width: 100%;
+    /* height: 90%; */
 }
 
 .map-display {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    border: 2px solid blue;
+    overflow: hidden;
+    /* display: flex;
+    flex-direction: row; */
 }
 
 .form-map-display {
     width: 16.5rem;
+    border: 2px solid pink;
 }
 
 @media screen and (max-width: 1000px) {

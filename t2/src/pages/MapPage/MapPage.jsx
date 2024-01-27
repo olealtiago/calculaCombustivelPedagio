@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, CalculoForm, MapDisplay } from '../../components';
+import { Header, CalculoForm, Mapa } from '../../components';
 import "./mapPage.css";
 
 const MapPage = () => {
@@ -11,7 +11,7 @@ const MapPage = () => {
           <CalculoForm />
         </div>
         <div className="map-display">
-          <MapDisplay />
+          <Mapa latitude={-23.5505} longitude={-46.6333} />
         </div>
       </div>
     </div>
