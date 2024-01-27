@@ -5,9 +5,10 @@ const CalculoBtn = () => {
     return (
         <>
             <div className='btn'>
-                <button type="button" onClick="calculate()">Calcular</button>
+                {/* <button type="button" onClick="calculate()">Calcular</button> */}
+                <button type="button">Calcular</button>
             </div>
-            <script src="../scripts/calculo.js" />
+            {/* <script src="../scripts/calculo.js" /> */}
         </>
     )
 }

@@ -1,14 +1,18 @@
 import React from 'react';
-import { Header, CalculoFormMap, MapDisplay } from '../../components';
+import { Header, CalculoForm, MapDisplay } from '../../components';
 import "./mapPage.css";
 
 const MapPage = () => {
   return (
-    <div>
+    <div className="map-page">
       <Header showResponsiveMenu={true} />
-      <div className="map-display">
-        <CalculoFormMap />
-        <MapDisplay />
+      <div className="map-page-content">
+        <div className="form-map-display">
+          <CalculoForm />
+        </div>
+        <div className="map-display">
+          <MapDisplay />
+        </div>
       </div>
     </div>
   )

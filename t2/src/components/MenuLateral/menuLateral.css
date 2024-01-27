@@ -1,110 +1,30 @@
-/* .toggle-menu-checkbox {
-    display: none;
-}
-
-.toggle-menu-icon {
-    cursor: pointer;
-    display: flex;
-    color: var(--fonte-fundo-vermelho);
-    padding-left: 1rem;
-    margin: 0;
-}
-
-.toggle-menu-checkbox:checked~.calculo__mapa .calculo__mapa-forms {
-    display: flex;
-} */
-
 .calculo__menuLat {
     display: flex;
     flex-direction: column;
-}
-
-.calculo__menuLat-btn svg {
-    cursor: pointer;
-    color: var(--color-font-navbar);
 }
 
 .calculo__menuLat-btn {
     z-index: 1;
 }
 
-.calculo__menuLat-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    opacity: 0;
-    z-index: -200;
-    transition: opacity 0.3s ease;
-}
-
-.calculo__menuLat-overlay.show {
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
+.calculo__menuLat-btn svg {
+    cursor: pointer;
+    color: var(--fonte-fundo-vermelho);
 }
 
 .calculo__menuLat-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: 250px;
-    height: 100vh;
-    z-index: -1;
-    background: red;
-
+    background-color: var(--barra-superior);
+    padding-top: 4rem;
     position: absolute;
     left: 0px;
     top: 0;
 }
 
-.calculo__menuLat-container a {
-    margin: 1rem 0;
-    position: relative;
-    display: inline-block;
-    text-align: left;
-    justify-content: flex-start;
+@media screen and (min-width: 1000px) {
+    .calculo__menuLat-btn {
+        display: none;
+    }
 }
-
-.calculo__menuLat-container a:hover {
-    color: var(--color-dark);
-    transition: color 0.3s ease;
-}
-
-.calculo__menuLat-container a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background-color: var(--color-dark);
-    transition: width 0.3s ease;
-    transform: translateX(-50%);
-    opacity: 0;
-    margin-bottom: -5px;
-}
-
-.calculo__menuLat-container a:hover::before {
-    width: 100%;
-    opacity: 1;
-}
-
-.calculo__menuLat-container_links {
-    padding-top: 3rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.calculo__menuLat-container_links-icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 3rem;
-}
-
-/* .form-display {
-    display: flex;
-} */

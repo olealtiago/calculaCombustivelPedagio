@@ -1,0 +1,36 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.home-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.home-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40rem;
+    margin: 1rem;
+    border: 3px solid var(--borda-form);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    .home-form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .home {
+        height: auto;
+    }
+}

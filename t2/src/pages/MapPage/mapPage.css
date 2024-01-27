@@ -1,4 +1,26 @@
+.map-page {
+    height: 100vh;
+}
+
+.map-page-content {
+    display: flex;
+}
+
 .map-display {
     display: flex;
     flex-direction: row;
+}
+
+.form-map-display {
+    width: 16.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .form-map-display {
+        display: none;
+    }
+
+    .map-page {
+        height: auto;
+    }
 }

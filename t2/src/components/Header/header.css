@@ -1,23 +1,28 @@
-.calculo__top,
-.calculo__footer {
+.header-container {
+    display: flex;
+    width: 100%;
+}
+
+.calculo__top {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 4rem;
     text-align: center;
     background-color: var(--barra-superior);
+    z-index: 1;
 }
 
-.calculo__top {
+.calculo__top-menu {
+    background-color: var(--barra-superior);
+    display: flex;
+    align-items: center;
     justify-content: center;
+    padding-left: 1rem;
 }
 
-.calculo__footer {
-    justify-content: center;
-}
-
-.calculo__top-logo h1,
-.calculo__footer p {
+.calculo__top-logo h1{
     color: var(--fonte-fundo-vermelho);
 }
 
@@ -49,11 +54,6 @@
         display: flex;
     }
     
-    .toggle-menu-checkbox,
-    .toggle-menu-icon {
-        display: none;
-    }
-
     .form-display {
         display: none;
     }

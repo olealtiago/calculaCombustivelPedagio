@@ -1,10 +1,27 @@
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
+.calcForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calcForm__mapa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calcForm__mapa-forms {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color: var(--fonte-fundo-vermelho);
+    left: 0;
 }
 
 form {
@@ -13,12 +30,24 @@ form {
 }
 
 label {
-    margin-top: 10px;
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 input, select {
-    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+input,
+select,
+select option {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+    input, select {
+        margin-bottom: 0px;
+    }
 }
