@@ -1,66 +1,133 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './calculoForm.css';
+import axios from 'axios';
 
 import { CalculoBtn } from '../../components';
 
 const CalculoForm = () => {
+  const [originCity, setOriginCity] = useState('');
+  const [destinationCity, setDestinationCity] = useState('');
+  const [originSuggestions, setOriginSuggestions] = useState([]);
+  const [destinationSuggestions, setDestinationSuggestions] = useState([]);
+
+  const fetchCitySuggestions = async (input, setSuggestions) => {
+    try {
+      const response = await axios.get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${input}&key=d7d221a79db147f7a041e3f28dcc9ca0&limit=5`
+      );
+
+      const suggestions = response.data.results.map((result) => result.formatted);
+      setSuggestions(suggestions);
+    } catch (error) {
+      console.error('Error fetching city suggestions:', error);
+    }
+  };
+
+  const handleOriginChange = (event) => {
+    const input = event.target.value;
+    setOriginCity(input);
+    fetchCitySuggestions(input, setOriginSuggestions);
+  };
+
+  const handleDestinationChange = (event) => {
+    const input = event.target.value;
+    setDestinationCity(input);
+    fetchCitySuggestions(input, setDestinationSuggestions);
+  };
+
+  const handleSuggestionClick = (city, setCity, setSuggestions) => {
+    setCity(city);
+    // Limpar as sugestões ao selecionar uma
+    setSuggestions([]);
+  };
+
   return (
     <div className="calcForm calcForm__mapa">
       <form className="calcForm__mapa-forms">
-          <label htmlFor="origin">Cidade de Origem:</label>
-          <input
-            type="text"
-            id="origin"
-            name="origin"
-            required
-            autoComplete="off"
-          />
+        <label htmlFor="origin">Cidade de Origem:</label>
+        <input
+          type="text"
+          id="origin"
+          name="origin"
+          value={originCity}
+          onChange={handleOriginChange}
+          required
+          autoComplete="off"
+        />
+        {originSuggestions.length > 0 && (
+          <div className="suggestion-container">
+            {originSuggestions.map((city, index) => (
+              <div
+                key={index}
+                className="suggestion"
+                onClick={() => handleSuggestionClick(city, setOriginCity, setOriginSuggestions)}
+              >
+                {city}
+              </div>
+            ))}
+          </div>
+        )}
 
-          <label htmlFor="destination">Cidade de Destino:</label>
-          <input
-            type="text"
-            id="destination"
-            name="destination"
-            required
-            autoComplete="off"
-          />
+        <label htmlFor="destination">Cidade de Destino:</label>
+        <input
+          type="text"
+          id="destination"
+          name="destination"
+          value={destinationCity}
+          onChange={handleDestinationChange}
+          required
+          autoComplete="off"
+        />
+        {destinationSuggestions.length > 0 && (
+          <div className="suggestion-container">
+            {destinationSuggestions.map((city, index) => (
+              <div
+                key={index}
+                className="suggestion"
+                onClick={() => handleSuggestionClick(city, setDestinationCity, setDestinationSuggestions)}
+              >
+                {city}
+              </div>
+            ))}
+          </div>
+        )}
 
-          <label htmlFor="vehicle">Tipo de Veículo:</label>
-          <select id="vehicle" name="vehicle" required>
-            <option value="car">Carro</option>
-            <option value="motorcycle">Moto</option>
-            <option value="truck">Caminhão</option>
-            <option value="bus">Ônibus</option>
-          </select>
+        <label htmlFor="vehicle">Tipo de Veículo:</label>
+        <select id="vehicle" name="vehicle" required>
+          <option value="car">Carro</option>
+          <option value="motorcycle">Moto</option>
+          <option value="truck">Caminhão</option>
+          <option value="bus">Ônibus</option>
+        </select>
 
-          <label htmlFor="consumption">Consumo do Veículo (km/l):</label>
-          <input
-            type="number"
-            id="consumption"
-            name="consumption"
-            step="0.1"
-            required
-          />
+        <label htmlFor="consumption">Consumo do Veículo (km/l):</label>
+        <input
+          type="number"
+          id="consumption"
+          name="consumption"
+          step="0.1"
+          required
+        />
 
-          <label htmlFor="fuelPrice">Preço do Combustível (R$/litro):</label>
-          <input
-            type="number"
-            id="fuelPrice"
-            name="fuelPrice"
-            step="0.01"
-            required
-          />
+        <label htmlFor="fuelPrice">Preço do Combustível (R$/litro):</label>
+        <input
+          type="number"
+          id="fuelPrice"
+          name="fuelPrice"
+          step="0.01"
+          required
+        />
 
-          <label htmlFor="tripType">Tipo de Viagem:</label>
-          <select id="tripType" name="tripType" required>
-            <option value="oneWay">Apenas Ida</option>
-            <option value="roundTrip">Ida e Volta</option>
-          </select>
-          
-          <CalculoBtn />
-        </form>
+        <label htmlFor="tripType">Tipo de Viagem:</label>
+        <select id="tripType" name="tripType" required>
+          <option value="oneWay">Apenas Ida</option>
+          <option value="roundTrip">Ida e Volta</option>
+        </select>
+        
+        <CalculoBtn />
+      </form>
     </div>
-  )
-}
+  );
+};
 
 export default CalculoForm;
