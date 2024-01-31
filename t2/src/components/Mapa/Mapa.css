@@ -1,7 +1,8 @@
 /* Mapa.css */
 
 .map-container {
-    max-width: 80%;
+    max-width: 100%;
     max-height: 100%;
+    border: 3px solid green;
   }
   

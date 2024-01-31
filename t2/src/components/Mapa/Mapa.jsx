@@ -1,26 +1,20 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import './Mapa.css'; // Importe o arquivo de estilo
+import React, { useRef } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import './Mapa.css';
 
-const Mapa = ({ latitude, longitude }) => {
-  const center = [latitude, longitude];
+const Mapa = () => {
+  const mapRef = useRef(null);
+  const latitude = -23.5505;
+  const longitude = -46.6333;
 
-  return (
-    <MapContainer className="map-container" center={center} zoom={20}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        minZoom={2}
-        maxZoom={18}
-      />
-      <Marker position={center}>
-        <Popup>
-          <div>
-            <strong>Localização</strong>
-          </div>
-        </Popup>
-      </Marker>
-    </MapContainer>
+  return ( 
+      <MapContainer center={[latitude, longitude]} zoom={13} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      </MapContainer>
   );
 };
 
