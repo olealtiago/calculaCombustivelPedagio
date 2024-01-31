@@ -4,24 +4,34 @@
 
 .map-page-content {
     display: flex;
-    border: 2px solid red;
     width: 100%;
-    /* height: 90%; */
+}
+
+.form-map-display {
+    width: 16.5rem;
 }
 
 .map-display {
     width: 100%;
     height: 100%;
-    border: 2px solid blue;
     overflow: hidden;
-    /* display: flex;
-    flex-direction: row; */
+    z-index: 1;
 }
 
-.form-map-display {
-    width: 16.5rem;
-    border: 2px solid pink;
+.menu-expanded .map-display {
+    z-index: -1;
 }
+
+@media screen and (max-width: 1000px) {
+    .form-map-display {
+        display: none;
+    }
+
+    .map-page {
+        height: auto;
+    }
+}
+
 
 @media screen and (max-width: 1000px) {
     .form-map-display {
