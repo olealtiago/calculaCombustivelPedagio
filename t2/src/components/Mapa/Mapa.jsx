@@ -35,7 +35,7 @@ const Mapa = () => {
   };
 
   return ( 
-      <MapContainer zoom={5} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
+      <MapContainer zoom={5} ref={mapRef} center={[-23.550520, -46.633308]} style={{height: "100vh", width: "100vw"}}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -44,11 +44,17 @@ const Mapa = () => {
         {originCoordinates && destinationCoordinates && (
           <RoutingMachine
             waypoints={[
-              L.latLng(originCoordinates.latitude, originCoordinates.longitude),
-              L.latLng(destinationCoordinates.latitude, destinationCoordinates.longitude),
+              L.latLng(
+                originCoordinates?.latitude || -23.550520,
+                originCoordinates?.longitude || -46.633308
+              ),
+              L.latLng(
+                destinationCoordinates?.latitude || -23.501530,
+                destinationCoordinates?.longitude || -47.452274
+              ),
             ]}
             onRouteFound={handleRouteFound}
-          />
+        />
         )}
       </MapContainer>
   );

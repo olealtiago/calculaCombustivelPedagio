@@ -23,6 +23,7 @@ const createRoutineMachineLayer = ({ waypoints, onRouteFound }) => {
     },
 
     show: true,
+    collapsible: true,
   });
 
   instance.on('routesfound', (event) => {

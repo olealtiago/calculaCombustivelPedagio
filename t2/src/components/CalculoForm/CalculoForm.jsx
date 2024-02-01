@@ -16,24 +16,33 @@ const CalculoForm = () => {
 
   useEffect(() => {
     const loadLocalStorageData = () => {
-      // Função para carregar os dados do localStorage
-      const parseLocalStorageItem = (key) => {
+      // Função para carregar os dados do localStorage com valor padrão
+      const parseLocalStorageItem = (key, defaultValue) => {
         const item = localStorage.getItem(key);
         // Verifica se o item existe e se é uma string JSON válida
-        return item ? JSON.parse(item) : '';
+        return item ? JSON.parse(item) : defaultValue;
       };
-
-      setOriginCity(parseLocalStorageItem('originCity'));
-      setDestinationCity(parseLocalStorageItem('destinationCity'));
-      setConsumption(parseLocalStorageItem('consumo'));
-      setFuelPrice(parseLocalStorageItem('fuelPrice'));
-      setTripType(parseLocalStorageItem('tripType'));
-      setVehicle(parseLocalStorageItem('vehicle'));
+  
+      // Valores padrão para cada campo, ajuste conforme necessário
+      const defaultOriginCity = 'São Paulo';
+      const defaultDestinationCity = 'Sorocaba';
+      const defaultConsumption = 10;
+      const defaultFuelPrice = 4.5;
+      const defaultTripType = 'oneWay';
+      const defaultVehicle = 'car';
+  
+      setOriginCity(parseLocalStorageItem('originCity', defaultOriginCity));
+      setDestinationCity(parseLocalStorageItem('destinationCity', defaultDestinationCity));
+      setConsumption(parseLocalStorageItem('consumo', defaultConsumption));
+      setFuelPrice(parseLocalStorageItem('fuelPrice', defaultFuelPrice));
+      setTripType(parseLocalStorageItem('tripType', defaultTripType));
+      setVehicle(parseLocalStorageItem('vehicle', defaultVehicle));
     };
-
+  
     // Chama a função de carregamento quando o componente é montado
     loadLocalStorageData();
   }, []); // O segundo parâmetro vazio [] garante que o useEffect seja executado apenas uma vez, quando o componente é montado
+  
 
 
   const fetchCitySuggestions = async (input, setSuggestions) => {

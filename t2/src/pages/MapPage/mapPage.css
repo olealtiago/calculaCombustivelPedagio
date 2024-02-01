@@ -34,7 +34,7 @@
     bottom: 10px;
     z-index: 1;
     border-radius: 4px;
-  }
+}
 
 @media screen and (max-width: 1000px) {
     .form-map-display {
@@ -47,3 +47,10 @@
     }
 }
 
+@media screen and (max-width: 326px) {
+    .result-container {
+        position: absolute;
+        width: 200px;
+    }
+    
+}
