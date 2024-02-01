@@ -22,7 +22,7 @@ const createRoutineMachineLayer = ({ waypoints }) => {
       });
     },
 
-    show: false,
+    show: true,
   });
 
   return instance;

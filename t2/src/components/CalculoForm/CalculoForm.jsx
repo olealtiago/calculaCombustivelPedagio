@@ -49,13 +49,16 @@ const CalculoForm = () => {
     try {
       const originCoordinates = await fetchCoordinatesForCity(originCity);
       const destinationCoordinates = await fetchCoordinatesForCity(destinationCity);
-
+  
       // Salvar as coordenadas se estiverem disponíveis
       if (originCoordinates && destinationCoordinates) {
         saveCoordinatesToLocalStorage('originCoordinates', originCoordinates);
         saveCoordinatesToLocalStorage('destinationCoordinates', destinationCoordinates);
   
         console.log('Coordenadas salvas com sucesso!');
+        
+        // Recarregar a página após salvar as coordenadas
+        window.location.reload();
       } else {
         console.error('Não foi possível obter as coordenadas para uma ou ambas as cidades.');
       }
@@ -171,9 +174,9 @@ const CalculoForm = () => {
           <option value="roundTrip">Ida e Volta</option>
         </select>
         <button type="button" onClick={handleSaveClick}>
-          Salvar Coordenadas
+          Calcular
         </button>
-        <CalculoBtn />
+        {/* <CalculoBtn /> */}
       </form>
     </div>
   );
