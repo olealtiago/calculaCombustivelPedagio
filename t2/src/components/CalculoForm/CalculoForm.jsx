@@ -9,6 +9,32 @@ const CalculoForm = () => {
   const [destinationCity, setDestinationCity] = useState('');
   const [originSuggestions, setOriginSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
+  const [consumption, setConsumption] = useState('');
+  const [fuelPrice, setFuelPrice] = useState('');
+  const [tripType, setTripType] = useState('');
+  const [vehicle, setVehicle] = useState('');
+
+  useEffect(() => {
+    const loadLocalStorageData = () => {
+      // Função para carregar os dados do localStorage
+      const parseLocalStorageItem = (key) => {
+        const item = localStorage.getItem(key);
+        // Verifica se o item existe e se é uma string JSON válida
+        return item ? JSON.parse(item) : '';
+      };
+
+      setOriginCity(parseLocalStorageItem('originCity'));
+      setDestinationCity(parseLocalStorageItem('destinationCity'));
+      setConsumption(parseLocalStorageItem('consumo'));
+      setFuelPrice(parseLocalStorageItem('fuelPrice'));
+      setTripType(parseLocalStorageItem('tripType'));
+      setVehicle(parseLocalStorageItem('vehicle'));
+    };
+
+    // Chama a função de carregamento quando o componente é montado
+    loadLocalStorageData();
+  }, []); // O segundo parâmetro vazio [] garante que o useEffect seja executado apenas uma vez, quando o componente é montado
+
 
   const fetchCitySuggestions = async (input, setSuggestions) => {
     try {
@@ -21,6 +47,16 @@ const CalculoForm = () => {
     } catch (error) {
       console.error('Error fetching city suggestions:', error);
     }
+  };
+
+  const handleconsumptionChange = (event) => {
+    const input = event.target.value;
+    setConsumption(input);
+  };
+
+  const handleFuelPriceChange = (event) => {
+    const input = event.target.value;
+    setFuelPrice(input);
   };
 
   const handleOriginChange = (event) => {
@@ -41,7 +77,7 @@ const CalculoForm = () => {
     setSuggestions([]);
   };
 
-  const saveCoordinatesToLocalStorage = (key, coordinates) => {
+  const saveInfosToLocalStorage = (key, coordinates) => {
     localStorage.setItem(key, JSON.stringify(coordinates));
   };
 
@@ -52,9 +88,21 @@ const CalculoForm = () => {
   
       // Salvar as coordenadas se estiverem disponíveis
       if (originCoordinates && destinationCoordinates) {
-        saveCoordinatesToLocalStorage('originCoordinates', originCoordinates);
-        saveCoordinatesToLocalStorage('destinationCoordinates', destinationCoordinates);
-  
+        //salva as coordenadas
+        saveInfosToLocalStorage('originCoordinates', originCoordinates);
+        saveInfosToLocalStorage('destinationCoordinates', destinationCoordinates);
+        //salva o nome das cidades
+        saveInfosToLocalStorage('originCity', originCity);
+        saveInfosToLocalStorage('destinationCity', destinationCity);
+        //salva o restante das informações do forms
+        var consumo = document.getElementById('consumption').value;
+        saveInfosToLocalStorage('consumo', consumo);
+        var fuelPrice = document.getElementById('fuelPrice').value;
+        saveInfosToLocalStorage('fuelPrice', fuelPrice);
+        var vehicle = document.getElementById('vehicle').value;
+        saveInfosToLocalStorage('vehicle', vehicle);
+        var tripType = document.getElementById('tripType').value;
+        saveInfosToLocalStorage('tripType', tripType);
         console.log('Coordenadas salvas com sucesso!');
         
         // Recarregar a página após salvar as coordenadas
@@ -143,7 +191,7 @@ const CalculoForm = () => {
         )}
 
         <label htmlFor="vehicle">Tipo de Veículo:</label>
-        <select id="vehicle" name="vehicle" required>
+        <select id="vehicle" name="vehicle" required value={vehicle} onChange={(e) => setVehicle(e.target.value)}>
           <option value="car">Carro</option>
           <option value="motorcycle">Moto</option>
           <option value="truck">Caminhão</option>
@@ -156,6 +204,9 @@ const CalculoForm = () => {
           id="consumption"
           name="consumption"
           step="0.1"
+          value={consumption}
+          onChange={handleconsumptionChange}
+          autoComplete="off"
           required
         />
 
@@ -165,11 +216,14 @@ const CalculoForm = () => {
           id="fuelPrice"
           name="fuelPrice"
           step="0.01"
+          value={fuelPrice}
+          onChange={handleFuelPriceChange}
+          autoComplete="off"
           required
         />
 
         <label htmlFor="tripType">Tipo de Viagem:</label>
-        <select id="tripType" name="tripType" required>
+        <select id="tripType" name="tripType" required value={tripType} onChange={(e) => setTripType(e.target.value)}>
           <option value="oneWay">Apenas Ida</option>
           <option value="roundTrip">Ida e Volta</option>
         </select>
