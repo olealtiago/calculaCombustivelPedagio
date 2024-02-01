@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -21,6 +21,14 @@ const Mapa = () => {
   const originCoordinates = fetchCoordinatesFromLocalStorage('originCoordinates');
   const destinationCoordinates = fetchCoordinatesFromLocalStorage('destinationCoordinates');
 
+  const [routeDistance, setRouteDistance] = useState(null);
+
+  // Função para lidar com a distância da rota encontrada
+  const handleRouteFound = (distance) => {
+    console.log('Distância da rota:', distance);
+    setRouteDistance(distance); // Atualize o estado ou faça qualquer outra coisa com a distância
+  };
+
   return ( 
       <MapContainer zoom={5} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
         <TileLayer
@@ -34,6 +42,7 @@ const Mapa = () => {
               L.latLng(originCoordinates.latitude, originCoordinates.longitude),
               L.latLng(destinationCoordinates.latitude, destinationCoordinates.longitude),
             ]}
+            onRouteFound={handleRouteFound}
           />
         )}
       </MapContainer>

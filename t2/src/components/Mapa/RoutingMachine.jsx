@@ -4,7 +4,7 @@ import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import markerIconImg from "../../assets/marker-icon.png";
 
-const createRoutineMachineLayer = ({ waypoints }) => {
+const createRoutineMachineLayer = ({ waypoints, onRouteFound }) => {
   const markerIcon = new L.Icon({
     iconUrl: markerIconImg,
     iconSize: [25, 41],
@@ -23,6 +23,12 @@ const createRoutineMachineLayer = ({ waypoints }) => {
     },
 
     show: true,
+  });
+
+  instance.on('routesfound', (event) => {
+    const route = event.routes[0];
+    const distance = route.summary.totalDistance;
+    onRouteFound(distance);
   });
 
   return instance;
