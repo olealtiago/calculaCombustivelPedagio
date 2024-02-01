@@ -173,7 +173,8 @@ const CalculoForm = () => {
           <option value="oneWay">Apenas Ida</option>
           <option value="roundTrip">Ida e Volta</option>
         </select>
-        <button type="button" onClick={handleSaveClick}>
+
+        <button type="button" className="btn" onClick={handleSaveClick}>
           Calcular
         </button>
         {/* <CalculoBtn /> */}

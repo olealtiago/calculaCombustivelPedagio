@@ -5,10 +5,12 @@
 .map-page-content {
     display: flex;
     width: 100%;
+    position: relative; /* Adiciona position: relative para posicionar os filhos absolutamente */
 }
 
 .form-map-display {
     width: 16.5rem;
+    height: 90vh;
 }
 
 .map-display {
@@ -16,6 +18,7 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    position: absolute; /* Adiciona position: absolute para posicionar absolutamente dentro do pai */
 }
 
 .menu-expanded .map-display {
@@ -32,13 +35,3 @@
     }
 }
 
-
-@media screen and (max-width: 1000px) {
-    .form-map-display {
-        display: none;
-    }
-
-    .map-page {
-        height: auto;
-    }
-}

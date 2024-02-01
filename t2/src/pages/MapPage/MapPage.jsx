@@ -13,11 +13,11 @@ const MapPage = () => {
     <div className={`map-page ${isMenuExpanded ? 'menu-expanded' : ''}`}>
       <Header showResponsiveMenu={true} onMenuToggle={handleMenuToggle} />
       <div className="map-page-content">
-        <div className="form-map-display">
-          <CalculoForm />
-        </div>
         <div className={`map-display ${isMenuExpanded ? 'menu-expanded' : ''}`}>
           <Mapa />
+        </div>
+        <div className="form-map-display">
+          <CalculoForm />
         </div>
       </div>
     </div>
