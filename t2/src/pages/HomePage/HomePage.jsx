@@ -1,7 +1,7 @@
 import React from 'react';
 import './homePage.css';
 
-import { CalculoFormHome, Header } from '../../components';
+import { CalculoForm, Header } from '../../components';
 
 const HomePage = () => {
   return (
@@ -10,7 +10,7 @@ const HomePage = () => {
         <Header />
       </div>
       <div className="home-form">
-        <CalculoFormHome />
+        <CalculoForm />
       </div>
     </div>
   )
