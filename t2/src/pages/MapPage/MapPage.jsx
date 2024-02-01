@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header, CalculoForm, Mapa } from '../../components';
+import { Header, CalculoForm, Mapa, Result } from '../../components';
 import './mapPage.css';
 
 const MapPage = () => {
@@ -18,6 +18,9 @@ const MapPage = () => {
         </div>
         <div className="form-map-display">
           <CalculoForm />
+        </div>
+        <div className="result-container">
+          <Result />
         </div>
       </div>
     </div>
