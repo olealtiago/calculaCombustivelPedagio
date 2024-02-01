@@ -23,10 +23,15 @@ const Mapa = () => {
 
   const [routeDistance, setRouteDistance] = useState(null);
 
+  const saveInfosToLocalStorage = (key, coordinates) => {
+    localStorage.setItem(key, JSON.stringify(coordinates));
+  };
+
   // Função para lidar com a distância da rota encontrada
   const handleRouteFound = (distance) => {
     console.log('Distância da rota:', distance);
     setRouteDistance(distance); // Atualize o estado ou faça qualquer outra coisa com a distância
+    saveInfosToLocalStorage('routeDistance', distance/1000);
   };
 
   return ( 
