@@ -1,13 +1,20 @@
 import React from 'react';
 import './calculoBtn.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const CalculoBtn = () => {
+const CalculoBtn = (props) => {
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const handleClickRoute = () => {
-        navigate('/map');
-    }
+    const handleClickRoute = async () => {
+        await props.onClick();
+      
+        if (location.pathname === '/map') {
+          window.location.reload();
+        } else {
+          navigate('/map');
+        }
+      }
 
     return (
         <>

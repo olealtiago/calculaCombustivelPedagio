@@ -47,14 +47,9 @@ select option {
     font-size: 1rem;
 }
 
-@media screen and (min-width: 1000px) {
-    input, select {
-        margin-bottom: 0px;
-    }
-}
-
 .suggestion-container {
-    position: relative;
+    position: absolute;
+    margin-top: 5rem;
     width: 100%;
     max-height: 300px;
     overflow-y: auto;
@@ -63,14 +58,33 @@ select option {
     border-top: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
-  }
-  
-  .suggestion {
+}
+
+.suggestion-dest-container {
+    position: absolute;
+    margin-top: 10rem;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.suggestion {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .suggestion:hover {
+}
+
+.suggestion:hover {
     background-color: #f2f2f2;
-  }
+}
+
+@media screen and (min-width: 1000px) {
+    input, select {
+        margin-bottom: 0px;
+    }
+}

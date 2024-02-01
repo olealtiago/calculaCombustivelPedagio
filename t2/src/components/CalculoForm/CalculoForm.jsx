@@ -106,7 +106,7 @@ const CalculoForm = () => {
         console.log('Coordenadas salvas com sucesso!');
         
         // Recarregar a página após salvar as coordenadas
-        window.location.reload();
+        //window.location.reload();
       } else {
         console.error('Não foi possível obter as coordenadas para uma ou ambas as cidades.');
       }
@@ -177,7 +177,7 @@ const CalculoForm = () => {
           autoComplete="off"
         />
         {destinationSuggestions.length > 0 && (
-          <div className="suggestion-container">
+          <div className="suggestion-dest-container">
             {destinationSuggestions.map((city, index) => (
               <div
                 key={index}
@@ -228,10 +228,10 @@ const CalculoForm = () => {
           <option value="roundTrip">Ida e Volta</option>
         </select>
 
-        <button type="button" className="btn" onClick={handleSaveClick}>
+        {/* <button type="button" className="btn" onClick={handleSaveClick}>
           Calcular
-        </button>
-        {/* <CalculoBtn /> */}
+        </button> */}
+        <CalculoBtn onClick={handleSaveClick} />
       </form>
     </div>
   );
