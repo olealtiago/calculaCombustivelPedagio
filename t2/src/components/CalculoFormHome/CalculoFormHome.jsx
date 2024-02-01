@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './calculoForm.css';
+import './calculoFormHome.css';
 import axios from 'axios';
 
 import { CalculoBtn } from '../../components';
@@ -129,7 +129,7 @@ const CalculoFormHome = () => {
           autoComplete="off"
         />
         {destinationSuggestions.length > 0 && (
-          <div className="suggestion-container">
+          <div className="suggestion-dest-container">
             {destinationSuggestions.map((city, index) => (
               <div
                 key={index}
