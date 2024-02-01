@@ -1,14 +1,19 @@
 import React from 'react';
 import './calculoBtn.css';
+import { useNavigate } from 'react-router-dom';
 
 const CalculoBtn = () => {
+    const navigate = useNavigate();
+
+    const handleClickRoute = () => {
+        navigate('/map');
+    }
+
     return (
         <>
             <div className='btn'>
-                {/* <button type="button" onClick="calculate()">Calcular</button> */}
-                <button type="button">Calcular</button>
+                <button onClick={handleClickRoute} type="button">Calcular</button>
             </div>
-            {/* <script src="../scripts/calculo.js" /> */}
         </>
     )
 }

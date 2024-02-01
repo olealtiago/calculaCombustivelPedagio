@@ -1,0 +1,76 @@
+.calcForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calcForm__mapa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calcForm__mapa-forms {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color: var(--fonte-fundo-vermelho);
+    left: 0;
+    z-index: 100;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input,
+select,
+select option {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+    input, select {
+        margin-bottom: 0px;
+    }
+}
+
+.suggestion-container {
+    position: relative;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .suggestion {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .suggestion:hover {
+    background-color: #f2f2f2;
+  }
