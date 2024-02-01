@@ -1,12 +1,25 @@
 import React, { useRef } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import './Mapa.css';
 import L from "leaflet";
 import RoutingMachine from "./RoutingMachine";
 
+const fetchCoordinatesFromLocalStorage = (key) => {
+  const storedCoordinates = localStorage.getItem(key);
+
+  if (storedCoordinates) {
+    return JSON.parse(storedCoordinates);
+  }
+
+  return null;
+};
+
 const Mapa = () => {
   const mapRef = useRef(null);
+
+  // Recupere as coordenadas salvas do armazenamento local
+  const originCoordinates = fetchCoordinatesFromLocalStorage('originCoordinates');
+  const destinationCoordinates = fetchCoordinatesFromLocalStorage('destinationCoordinates');
 
   return ( 
       <MapContainer zoom={5} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
@@ -15,12 +28,14 @@ const Mapa = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <RoutingMachine
-          waypoints={[
-            L.latLng(-23.5489, -46.6388),
-            L.latLng(-22.0154, -47.8911),
-          ]}
-        />
+        {originCoordinates && destinationCoordinates && (
+          <RoutingMachine
+            waypoints={[
+              L.latLng(originCoordinates.latitude, originCoordinates.longitude),
+              L.latLng(destinationCoordinates.latitude, destinationCoordinates.longitude),
+            ]}
+          />
+        )}
       </MapContainer>
   );
 };

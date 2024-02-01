@@ -41,6 +41,53 @@ const CalculoForm = () => {
     setSuggestions([]);
   };
 
+  const saveCoordinatesToLocalStorage = (key, coordinates) => {
+    localStorage.setItem(key, JSON.stringify(coordinates));
+  };
+
+  const handleSaveClick = async () => {
+    try {
+      const originCoordinates = await fetchCoordinatesForCity(originCity);
+      const destinationCoordinates = await fetchCoordinatesForCity(destinationCity);
+
+      // Salvar as coordenadas se estiverem disponíveis
+      if (originCoordinates && destinationCoordinates) {
+        saveCoordinatesToLocalStorage('originCoordinates', originCoordinates);
+        saveCoordinatesToLocalStorage('destinationCoordinates', destinationCoordinates);
+  
+        console.log('Coordenadas salvas com sucesso!');
+      } else {
+        console.error('Não foi possível obter as coordenadas para uma ou ambas as cidades.');
+      }
+    } catch (error) {
+      console.error('Erro ao buscar coordenadas:', error);
+    }
+  };
+  
+
+  const fetchCoordinatesForCity = async (city) => {
+    try {
+      const response = await axios.get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=d7d221a79db147f7a041e3f28dcc9ca0&limit=1`
+      );
+
+      const result = response.data.results[0];
+
+      if (result) {
+        const coordinates = {
+          latitude: result.geometry.lat,
+          longitude: result.geometry.lng
+        };
+
+        return coordinates;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching coordinates for city:', error);
+      return null;
+    }
+  };
   return (
     <div className="calcForm calcForm__mapa">
       <form className="calcForm__mapa-forms">
@@ -123,7 +170,9 @@ const CalculoForm = () => {
           <option value="oneWay">Apenas Ida</option>
           <option value="roundTrip">Ida e Volta</option>
         </select>
-        
+        <button type="button" onClick={handleSaveClick}>
+          Salvar Coordenadas
+        </button>
         <CalculoBtn />
       </form>
     </div>
