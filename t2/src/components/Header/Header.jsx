@@ -20,10 +20,6 @@ const Header = ({ showResponsiveMenu }) => {
             <img src={logo} alt="logo" />
             <h1>Calculadora de Viagem</h1>
           </a>
-          {/* <Link to="/">
-          <img src={logo} alt="logo" />
-          <h1>Calculadora de Viagem</h1>
-      </Link> */}
         </div>
       </div>
     </div>

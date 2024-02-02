@@ -19,11 +19,10 @@ const CalculoForm = () => {
       // Função para carregar os dados do localStorage com valor padrão
       const parseLocalStorageItem = (key, defaultValue) => {
         const item = localStorage.getItem(key);
-        // Verifica se o item existe e se é uma string JSON válida
         return item ? JSON.parse(item) : defaultValue;
       };
   
-      // Valores padrão para cada campo, ajuste conforme necessário
+      // Valores padrão para cada campo, caso nulo
       const defaultOriginCity = 'São Paulo';
       const defaultDestinationCity = 'Sorocaba';
       const defaultConsumption = 10;
@@ -39,9 +38,8 @@ const CalculoForm = () => {
       setVehicle(parseLocalStorageItem('vehicle', defaultVehicle));
     };
   
-    // Chama a função de carregamento quando o componente é montado
     loadLocalStorageData();
-  }, []); // O segundo parâmetro vazio [] garante que o useEffect seja executado apenas uma vez, quando o componente é montado
+  }, []);
   
 
 
@@ -82,7 +80,6 @@ const CalculoForm = () => {
 
   const handleSuggestionClick = (city, setCity, setSuggestions) => {
     setCity(city);
-    // Limpar as sugestões ao selecionar uma
     setSuggestions([]);
   };
 
@@ -95,7 +92,6 @@ const CalculoForm = () => {
       const originCoordinates = await fetchCoordinatesForCity(originCity);
       const destinationCoordinates = await fetchCoordinatesForCity(destinationCity);
   
-      // Salvar as coordenadas se estiverem disponíveis
       if (originCoordinates && destinationCoordinates) {
         //salva as coordenadas
         saveInfosToLocalStorage('originCoordinates', originCoordinates);
@@ -114,8 +110,6 @@ const CalculoForm = () => {
         saveInfosToLocalStorage('tripType', tripType);
         console.log('Coordenadas salvas com sucesso!');
         
-        // Recarregar a página após salvar as coordenadas
-        //window.location.reload();
       } else {
         console.error('Não foi possível obter as coordenadas para uma ou ambas as cidades.');
       }
@@ -237,9 +231,6 @@ const CalculoForm = () => {
           <option value="roundTrip">Ida e Volta</option>
         </select>
 
-        {/* <button type="button" className="btn" onClick={handleSaveClick}>
-          Calcular
-        </button> */}
         <CalculoBtn onClick={handleSaveClick} />
       </form>
     </div>

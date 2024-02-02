@@ -17,7 +17,6 @@ const fetchCoordinatesFromLocalStorage = (key) => {
 const Mapa = () => {
   const mapRef = useRef(null);
 
-  // Recupere as coordenadas salvas do armazenamento local
   const originCoordinates = fetchCoordinatesFromLocalStorage('originCoordinates');
   const destinationCoordinates = fetchCoordinatesFromLocalStorage('destinationCoordinates');
 
@@ -27,15 +26,14 @@ const Mapa = () => {
     localStorage.setItem(key, JSON.stringify(coordinates));
   };
 
-  // Função para lidar com a distância da rota encontrada
   const handleRouteFound = (distance) => {
     console.log('Distância da rota:', distance);
-    setRouteDistance(distance); // Atualize o estado ou faça qualquer outra coisa com a distância
+    setRouteDistance(distance);
     saveInfosToLocalStorage('routeDistance', distance/1000);
   };
 
   return ( 
-      <MapContainer zoom={5} ref={mapRef} center={[-23.550520, -46.633308]} style={{height: "100vh", width: "100vw"}}>
+      <MapContainer zoom={10} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

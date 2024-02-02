@@ -25,7 +25,6 @@ const MenuLateral = () => {
                     <div className="calculo__menuLat-container">
                         <div className="calculo__menuLat-container_forms">
                             <CalculoForm />
-                            {/* <a href="">Aaaaaaaaaaaaaaaaa</a> */}
                         </div>
                     </div>
                 )
