@@ -1,6 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header, CalculoForm, Mapa, Result } from '../../components';
 import './mapPage.css';
+
+const DelayedRender = ({ children, delay }) => {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShouldRender(true);
+    }, delay);
+
+    return () => clearTimeout(timeoutId);
+  }, [delay]);
+
+  return shouldRender ? children : null;
+};
 
 const MapPage = () => {
   const [isMenuExpanded, setMenuExpanded] = useState(false);
@@ -19,9 +33,11 @@ const MapPage = () => {
         <div className="form-map-display">
           <CalculoForm />
         </div>
-        <div className="result-container">
-          <Result />
-        </div>
+        <DelayedRender delay={3000}>
+          <div className="result-container">
+            <Result />
+          </div>
+        </DelayedRender>
       </div>
     </div>
   );
